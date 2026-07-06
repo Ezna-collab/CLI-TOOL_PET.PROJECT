@@ -19,6 +19,7 @@ class FileExtension(Enum):
 class File:
     name:str
     path:str
+    content:str
     type_file:FileExtension
     created_at:datetime = field(default_factory=now)
     modify_at:datetime =field(default_factory= now)
@@ -42,7 +43,7 @@ class File:
             raise ValueError("extension is required")
         self.type_file = self.name.split(".")[-1].lower()
 
-        if type_file not in FileExtension:
+        if self.type_file not in FileExtension:
             raise ValueError ("unsupported file extension")
 
 
@@ -62,20 +63,3 @@ class File:
             raise ValueError("path cannot be empty")
         self.path = new_path.strip()
 
-def test():
-    try:
-        file = File(
-            name="rapport.pdf",
-            path="C:/Users/Beauty/Documents"
-        )
-
-        print("===== FILE CREATED =====")
-        print(f"Name: {file.name}")
-        print(f"Path: {file.path}")
-        print(f"Created at: {file.created_at}")
-        print(f"Modified at: {file.modified_at}")
-
-    except ValueError as error:
-        print(f"Error: {error}")
-
-t = test()
