@@ -36,6 +36,15 @@ class File:
         if not self.path or not self.path.strip():
             raise ValueError("file path can't be empty")
         self.path = self.path.strip()
+    
+    def validate_type_file(self) -> None:
+        if "." not in self.name:
+            raise ValueError("extension is required")
+        self.type_file = self.name.split(".")[-1].lower()
+
+        if type_file not in FileExtension:
+            raise ValueError ("unsupported file extension")
+
 
     def rename(self, new_name: str) -> None:
         if not self.new_name or not self.new_name.strip:
@@ -53,3 +62,20 @@ class File:
             raise ValueError("path cannot be empty")
         self.path = new_path.strip()
 
+def test():
+    try:
+        file = File(
+            name="rapport.pdf",
+            path="C:/Users/Beauty/Documents"
+        )
+
+        print("===== FILE CREATED =====")
+        print(f"Name: {file.name}")
+        print(f"Path: {file.path}")
+        print(f"Created at: {file.created_at}")
+        print(f"Modified at: {file.modified_at}")
+
+    except ValueError as error:
+        print(f"Error: {error}")
+
+t = test()
