@@ -9,11 +9,10 @@ def now()-> datetime:
 class Folder:
     name:str
     path:str
-    content: str
     created_at: datetime = field(default_factory=now)
     modified_at: datetime = field(default_factory=now)
-    
-    
+    default_folder: list = ["PDF","DOCX","PPT","TXT","PY","JS"]
+
     def __post_init__(self) -> None:
         self.validate_path()
         self.validate_name()
