@@ -1,0 +1,3 @@
+no external dependencies
+
+standard python libraries only
