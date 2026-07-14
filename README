@@ -1,0 +1,157 @@
+# File Manager CLI
+
+A command-line File Manager built with Python following Clean Architecture principles using JSON persistence
+
+## Features
+
+✅ Create files
+
+✅ Read file content
+
+✅ Modify file content
+
+✅ Delete files
+
+✅ List all files
+
+---
+
+# Supported File Types
+
+The application supports extensions like:
+
+- txt
+- pdf
+- docx
+- ppt
+- py
+- js
+
+
+---
+
+# Project Structure
+
+```text
+src/
+│
+├── entities/
+│   └── file.py
+│
+├──use_cases/
+│   ├─create_file.py
+│   ├─read_file.py
+│   ├─delete_file.py
+│   ├─list_files.py
+│   ├─modify_file.py
+│   └──interfaces/
+│       └──file_repository.py
+│
+│
+├── interface_adapters/
+│   ├── controller/file_controller.py
+│   ├── presenter/file_presenter.py
+│   └── repository/in_memory_file_repository.py
+│
+│
+├── frameworks_and_drivers/
+│   └── cli.py
+│
+└── main.py
+```
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Go to the project folder:
+
+```bash
+cd CLI-Tool_pet.project
+```
+
+---
+
+# Run the Application
+
+Display help:
+
+```bash
+py main.py -h
+```
+
+---
+
+# Commands
+
+## Create a File
+
+```bash
+py main.py create-file --name hello.txt --content "Hello World"
+```
+
+Example output:
+
+```text
+✓ file has been created successfully
+```
+
+## Read a File
+
+```bash
+py main.py read-file --name hello.txt
+```
+
+## Modify a File
+
+```bash
+py main.py modify-file --name hello.txt --content "Updated content"
+```
+
+## Delete a File
+
+```bash
+py main.py delete-file --name hello.txt
+```
+
+## List Files
+
+```bash
+py main.py list-files
+```
+
+---
+
+# Data Storage
+
+Files are stored inside:
+
+```text
+data/files.json
+```
+
+# Architecture
+
+- Entities
+- Use Cases
+- Interface Adapters
+- Frameworks & Drivers
+
+# Technologies
+
+- Python 3.14
+- argparse
+- JSON
+- dataclasses
+- pathlib
+
+# Author
+
+Ezna Cornet
+computer science student
